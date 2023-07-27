@@ -1,5 +1,5 @@
 const yargs = require("yargs");
-
+const notes = require('./notes')
 yargs.command({
     command:'add',
     describe:'It will add a new note to the existing notes file. If a note with duplicate title is tried to add then it will dispay in red that title already taken else show success message in green.',
@@ -16,9 +16,7 @@ yargs.command({
         }
     },
     handler:(argv)=>{
-        console.log('Add command is working')
-        console.log('Title - ',argv.title)
-        console.log('Body - ',argv.body)
+        notes.addNote(argv.title,argv.body)
     }
 })
 
