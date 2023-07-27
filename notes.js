@@ -30,4 +30,17 @@ const addNote=(title,body)=>{
     }
 }
 
-module.exports={addNote}
+//It will delete the note matching with the title. If title is not matching it will display in red title not found else, it will display success message in green.
+const deleteNote=(title)=>{
+    let notes = getNotes()
+    let index = notes.findIndex((note)=>note.title.toUpperCase()===title.toUpperCase())
+    if(index!==-1){
+        notes.splice(index,1)
+        saveNotes(notes)
+        console.log(chalk.bgGreen('Successfully Deleted Note.'))
+    } else{
+        console.log(chalk.bgRed('Note Title Not Found.'))
+    }
+}
+
+module.exports={addNote,deleteNote}

@@ -31,8 +31,7 @@ yargs.command({
         }
     },
     handler:(argv)=>{
-        console.log('Delete command is working')
-        console.log('Title - ',argv.title)
+        notes.deleteNote(argv.title)
     }
 })
 
