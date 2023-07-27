@@ -56,4 +56,18 @@ const readNote=(title)=>{
     }
 }
 
-module.exports={addNote,deleteNote,readNote}
+//It will show all the notes (title and body) with a success message in green if present otherwise display empty list in red. 
+const listNotes=()=>{
+    let notes = getNotes()
+    let arr=[]
+    if(notes.length===0){
+        console.log(chalk.bgRed('Empty Notes List.')) 
+    } else{
+        console.log(chalk.bgGreen('Notes List Fetched.'))
+        notes.forEach((note)=>{
+            console.log(chalk.bgYellow('Title :- '),note.title,",",chalk.bgYellow("Body :- "),note.body)
+        })
+    }
+}
+
+module.exports={addNote,deleteNote,readNote,listNotes}

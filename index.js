@@ -54,7 +54,7 @@ yargs.command({
     command:'list',
     describe:'It will show all the notes (title and body) with a success message in green if present otherwise display empty list in red.',
     handler:()=>{
-        console.log('List command is working')
+        notes.listNotes()
     }
 })
 
