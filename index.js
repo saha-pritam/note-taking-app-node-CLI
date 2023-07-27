@@ -46,8 +46,7 @@ yargs.command({
         }
     },
     handler:(argv)=>{
-        console.log('Read command is working')
-        console.log('Title - ',argv.title)
+        notes.readNote(argv.title)
     }
 })
 

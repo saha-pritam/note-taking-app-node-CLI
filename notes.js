@@ -43,4 +43,17 @@ const deleteNote=(title)=>{
     }
 }
 
-module.exports={addNote,deleteNote}
+//It will read the note matching with the title. If title is not matching it will display in red title not found else, it will display a success message in green and then both the title and body in white.
+const readNote=(title)=>{
+    let notes = getNotes()
+    let index = notes.findIndex((note)=>note.title.toUpperCase()===title.toUpperCase())
+    if(index!==-1){
+        console.log(chalk.bgGreen('Note Title Found.'))
+        console.log('Title :- ',notes[index].title)
+        console.log('Body :- ',notes[index].body)
+    } else{
+        console.log(chalk.bgRed('Note Title Not Found.'))
+    }
+}
+
+module.exports={addNote,deleteNote,readNote}
